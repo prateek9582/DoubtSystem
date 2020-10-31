@@ -1,0 +1,107 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.card{
+    width: 80%;
+    margin: 0 auto;
+}
+span.all-doubts{
+    margin-left: 80rem;
+}
+.well{
+    border: 2px solid rgb(180, 177, 177);
+    margin-bottom: 1rem;
+}
+.dashboard-up{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    // justify-content: space-evenly;
+}
+.level{
+    border : 1px solid gray;
+    padding: 2rem 4rem;
+    background-color: rgb(166, 184, 197);
+}
+.mar-r{
+    margin-right: 4rem;
+}
+.mar-l{
+    margin-left:1rem;
+}
+.comment-parent{
+    width: 97%;
+    margin: 0 auto;
+    display: flex;
+
+}
+.comment-field {
+    width: 474%;
+}
+.comment-btn{
+    margin-left: 49.3rem;
+}
+.card{
+    background-color: rgb(189, 206, 216);
+}
+.resolved-card{
+    margin-top: 0.5rem;
+    margin-left: 60rem;
+    border: 3px solid rgb(29, 190, 196);
+    background-color:rgb(145, 197, 199);
+    width: 10rem;
+}
+.comments{
+    background-color: rgb(222, 236, 245);
+    width: 97%;
+    margin: 0.5rem auto;
+}
+.card-info{
+    width: 97%;
+    margin: 0 auto;
+}
+.asked{
+    margin-left: 52rem;
+}
+.show-doubts{
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgb(189, 206, 216);
+    display: flex;
+    height: 4rem;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+.accept-btn{
+    height: 2.5rem;
+    margin-top: 0.5rem;
+    margin-right: 6rem;
+}
+.show-title{
+    margin-top: 1rem;
+    margin-left: 1.75rem;
+}
+.ta-report{
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgb(213, 222, 228);
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+}
+.inner{
+    width: 97%;
+    margin: 0 auto;
+}
+.ta-head{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.every{
+    
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: white;
+}
+.for{
+    margin: 0;
+}

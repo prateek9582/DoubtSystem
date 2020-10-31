@@ -1,0 +1,39 @@
+<h1 class="heading">Solve Doubt</h1>
+<div class="container">
+  <div class= "container-part">
+    <div class = "well description">
+        <h4><%= @question.title %></h3>
+        <p><%= @question.description %></p>
+        <span class="small">Asked By <%= @question.user.email.split('@')[0] %> on <%= @question.time %></span>
+        <% if @question.resolved %>
+            <p><b>Answer :</b> <%= @question.answer %></p>
+            <span class="small">Answered By <%= @question.username %> on <%= @question.end_time %></span>
+        <% end %>
+    <hr>
+    <span class=""><%= @question.comments.length %> Comments</span>
+    <% @question.comments.each do |comment| %>
+        <div class="well comments">
+        <p><strong><%= comment.username %></strong>: <%= comment.body %></p>
+        </div>
+    <% end %>
+    </div>
+    </div>
+    <div class = "container-part">
+      <%= form_for @question do |form| %>
+      <div class="well answer-space">
+          <div class="field">
+            <%= form.label :answer %>
+            <%= form.text_field(:answer, {:class => 'form-control form-field', :placeholder => 'Answer'}) %>
+          </div>
+
+          <div class="actions">
+            <%= form.submit "Answer",({:class => 'btn btn-primary text-light answer-btn'}) %>
+          </div>
+          </div>
+          <div class="actions">
+            <%= form.submit "Escalate",({:class => 'btn text-primary border-primary escalate-btn'}) %>
+          </div>
+        <% end %>
+
+    </div>
+    </div>

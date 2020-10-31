@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DoubtsSystem</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark first-nav">
+      <div class="all-circle">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+    </nav>
+    <nav class="navbar navbar-expand-md navbar-light second-nav" id="user_nav">
+    <%= image_tag("download.jpg", :class => "logo")%>
+    <% if current_user %>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="nav navbar-nav mr-auto">
+          <li class="mr-2 mt-2">
+            <%= link_to 'Home', root_path, :class => 'text-dark'%> | 
+          </li>
+          <li class="mr-2 mt-2">
+            <%= link_to 'Raise Doubt', new_question_path, :class => 'text-dark'%>
+          <li>
+          <% if current_user.ta || current_user.admin%>
+            <li class="mr-2 mt-2">
+               | <%= link_to 'Solve Doubts', solve_path, :class => 'text-dark'%> 
+            <li>
+          <% end %>
+          <% if current_user.admin %>
+            <li class="mr-2 mt-2">
+               | <%= link_to 'Dashboard', dashboard_path, :class => 'text-dark'%>
+            </li>
+          <% end %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'text-light btn btn-primary logout-btn' %>
+          <% else %>
+            <li class = "mr-2 mt-2">
+              <%= link_to 'Sign up', new_user_registration_path, :class => 'text-dark' %> | 
+            </li>
+            <li class = "mr-2 mt-2">
+              <%= link_to 'Sign in', new_user_session_path, :class => 'text-dark' %>
+            </li>
+          <% end %>
+    </ul>
+    </div>
+    </nav>
+    <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </body>
+</html>

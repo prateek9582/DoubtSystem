@@ -1,0 +1,38 @@
+<span class="all-doubts"><%= @questions.length %> Doubts </span>
+<% @questions.each do |question| %>
+    <div class="well card">
+    <div class = "card-info">
+        <% if question.resolved %>
+            <div>
+                <span class="btn text-dark resolved-card">Resolved</span>
+            </div>
+        <% end %>
+        <h3><%= question.title %></h3>
+        <p><b><%= question.description %></b></p>
+        <span class="small asked">Asked By <%= question.user.email.split('@')[0] %> on <%= question.time %></span>
+        <% if question.resolved %>
+            <p><b>Answer :</b> <%= question.answer %></p>
+            <span class="small">Answered By <%= question.username %> on <%= question.end_time %></span>
+        <% end %>
+    </div>
+    <hr>
+    <span class="card-info"><%= question.comments.length %> Comments</span>
+    <% question.comments.each do |comment| %>
+        <div class="well comments">
+            <p><strong><%= comment.username %></strong>: <%= comment.body %></p>
+        </div>
+    <% end %>
+    <% if current_user %>
+        <%= form_for([question, question.comments.build]) do |f| %>
+            <div class="comment-parent">
+                <p>
+                    <%= f.text_field(:body, {:class => 'form-control comment-field'}) %>
+                </p>
+                <p>
+                    <%= f.submit "Comment",({:class => 'btn bg-light text-primary border-primary comment-btn'}) %>
+                </p>
+            </div>
+        <% end %>
+    <% end %>
+    </div>
+<% end %>

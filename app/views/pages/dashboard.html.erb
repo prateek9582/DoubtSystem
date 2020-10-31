@@ -1,0 +1,44 @@
+<h1 class="heading"> Dashboard </h1>
+<div class="dashboard-up">
+    <div class="level mar-r">
+        <br/>
+        <h2 class="mar-l"><%= @allreport["total_doubts"] %> <br/></h2>
+        <p>Doubts Asked</p>
+    </div>
+    <div class="level mar-r">
+        <br/>
+        <h2 class="mar-l"><%= @allreport["resolved_doubt"] %><br/></h2>
+        <p>Doubts Resolved</p>
+    </div>
+    <div class="level mar-r">
+        <br/>
+        <h2 class="mar-l"><%= @allreport["escalated_doubt"] %> <br/></h2>
+        <p>Doubts Escalated</p>
+    </div>
+    <div class="level">
+        <br/>
+        <h2 class="mar-l"><%= @allreport["Average"] %> min<br/></h2>
+        <p>Avg. Doubt Resoltuion Time</p>
+    </div>
+</div>
+<div class="well ta-report">
+    <div class="inner">
+    <div class="ta-head">TAs Report</div>
+    <% @tareport.each do |report| %>
+        <div class="well bg-white for">
+        <div class="inner every">
+        <b><%= report["username"]%></b>
+        <div>
+            <span>Doubts Accepted: <%= report["total"]%> | </span>
+            <span>Doubts Resolved: <%= report["resolved"]%> | </span>
+            <span>Doubts Escalated: <%= report["escalated"]%> | </span>
+            <span>Avg. Doubt Activity Time: <%= report["time"]%> min</span>
+            
+            
+        </div>
+        </div>
+        </div>
+    <% end %>
+    </div>
+
+</div>

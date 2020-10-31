@@ -1,0 +1,51 @@
+// Place all the styles related to the questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.grey-border{
+    border: 2px solid lightgray;
+}
+.field {
+    width: 85%;
+    margin: 35px auto;
+}
+.doubt-form {
+    background-color: aliceblue;
+    width: 80%;
+    margin: 0 auto;
+    height: 22rem;
+}
+.doubt-btn{
+    margin-right: 6rem;
+    // background-color:rgb(54, 54, 177);
+}
+.form-field{
+    border: 2px solid lightgray;
+}
+h1.heading{
+    margin-top: 2rem;
+    margin-left: 10rem;
+    margin-bottom: 1.5rem;
+}
+.container{
+    width: 100%;
+    display: flex;
+}
+.container-part{
+    width: 50%;
+    margin-right: 1rem;
+}
+.description{
+    background-color: rgb(189, 206, 216);
+    padding-bottom: 5rem;
+}
+.answer-space{
+    background-color: rgb(213, 222, 228);
+    height: 13rem;
+}
+.answer-btn{
+    margin-left: 26rem;
+}
+.escalate-btn{
+    margin-left: 29rem;
+}

@@ -1,0 +1,51 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ .second-nav{
+     background-color: rgb(213, 222, 228);
+ }
+ 
+ img.logo{
+    margin-left: 1rem;
+    height: 2rem;
+    margin-right:2rem
+ }
+ .logout-btn{
+     margin-left: 58rem;
+ }
+ li{
+     list-style-type: none;
+ }
+.circle{
+    height: 0.75rem;
+    border-radius: 50%;
+    background-color: rgb(124, 158, 168);
+    width: 0.75rem;
+    margin-right: 0.2rem;
+}
+.all-circle{
+    display: flex;
+    padding-bottom: 0.25rem;
+}
+.first-nav{
+    background-color: rgb(153, 174, 184);
+}
+.login-btn{
+    margin-left:7rem;
+}
+.shift{
+    margin-left:7rem;
+}
