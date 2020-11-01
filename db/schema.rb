@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_175903) do
+ActiveRecord::Schema.define(version: 2020_11_01_061655) do
 
   create_table "comments", force: :cascade do |t|
     t.string "username"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 2020_10_29_175903) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_doubts_on_user_id"
+  end
+
+  create_table "escalatings", force: :cascade do |t|
+    t.string "username"
+    t.integer "question_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_escalatings_on_question_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -65,5 +73,6 @@ ActiveRecord::Schema.define(version: 2020_10_29_175903) do
 
   add_foreign_key "comments", "questions"
   add_foreign_key "doubts", "users"
+  add_foreign_key "escalatings", "questions"
   add_foreign_key "questions", "users"
 end

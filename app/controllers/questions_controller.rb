@@ -63,10 +63,11 @@ class QuestionsController < ApplicationController
 
     if params[:commit] == 'Escalate'
       @question.escalated = true
-      @question.username = current_user.email.split('@')[0]
-      if @question.update(update_question_params)
-        redirect_to solve_path
-      end
+      @escalate = @question.escalatings.create();
+      @question.save
+      @escalate.username = current_user.email.split('@')[0]
+      @escalate.save
+      redirect_to solve_path
     end 
     
   end

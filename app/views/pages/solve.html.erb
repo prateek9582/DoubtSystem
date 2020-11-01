@@ -1,16 +1,20 @@
 <h1 class="heading">Solve Doubts</h1>
 <% @questions.each do |question| %>
-    <% if !question.resolved && !question.escalated %>
+    <% if question.escalated && !question.resolved%>
+        <% @boolarr.each do |arr| %>
+            <% if arr["id"] == question.id %>
+                <% if !arr["names"].include?(current_user.email.split('@')[0])%>
+                    <div class="well show-doubts">
+                        <h5 class="show-title"><%= question.title%></h5>
+                        <%= link_to 'Accept', edit_question_path(question),:class => 'btn bg-light text-primary border-primary accept-btn'%>
+                    </div>            
+                <% end %>
+            <%end%>
+        <% end %>
+    <% elsif !question.resolved%>
         <div class="well show-doubts">
             <h5 class="show-title"><%= question.title%></h5>
             <%= link_to 'Accept', edit_question_path(question),:class => 'btn bg-light text-primary border-primary accept-btn'%>
         </div>
-    <% elsif question.escalated %>
-        <% if question.username != current_user.email.split('@')[0] %>
-            <div class="well show-doubts">
-                <h5 class="show-title"><%= question.title%></h5>
-                <%= link_to 'Accept', edit_question_path(question),:class => 'btn bg-light text-primary border-primary accept-btn'%>
-            </div>
-        <% end %>
     <% end %>
 <% end %>

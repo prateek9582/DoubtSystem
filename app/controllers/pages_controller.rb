@@ -5,7 +5,17 @@ class PagesController < ApplicationController
 
   def solve
     @questions = Question.all
-    @questions.reject{|question| question.resolved || question.escalated}
+    @boolarr = Array.new
+    l=0
+    while(l<@questions.length)
+      ises = Array.new
+      @questions[l].escalatings.each do |escalating|
+        ises.push(escalating.username)
+      end
+      @boolarr.push(Hash["id" => @questions[l].id, "names" => ises])
+      l = l + 1
+    end
+    puts @boolarr
   end
 
   def dashboard
@@ -32,8 +42,8 @@ class PagesController < ApplicationController
         overall = ((ethr-sthr) * 60) + (etmin - stmin)
         avg = avg + overall
       end
-      if @questions[j].escalated
-        ed = ed + 1
+      if @questions[j].escalated 
+        ed = ed + @questions[j].escalatings.length
       end
       j = j + 1
     end
@@ -66,8 +76,15 @@ class PagesController < ApplicationController
               overall = ((ethr - sthr) * 60) + (etmin - stmin)
               t = t + overall
             end
-            if @questions[ri].escalated
-              e = e + 1
+            
+          end
+          if @questions[ri].escalated
+            @questions[ri].escalatings.each do |escalating|
+              if escalating.question_id == @questions[ri].id
+                if escalating.username == @users[i].email.split('@')[0]
+                  e=e+1
+                end
+              end
             end
           end
           ri = ri + 1
