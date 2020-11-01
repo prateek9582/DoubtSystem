@@ -80,11 +80,9 @@ class PagesController < ApplicationController
           end
           if @questions[ri].escalated
             @questions[ri].escalatings.each do |escalating|
-              if escalating.question_id == @questions[ri].id
                 if escalating.username == @users[i].email.split('@')[0]
                   e=e+1
                 end
-              end
             end
           end
           ri = ri + 1
